@@ -8,6 +8,6 @@
         <title>MyProfile</title>
     </head>
     <body>
-        <h1>Myプロフィール作成画面</h1>
+        <h1>Myプロフィール新規作成画面</h1>
     </body>
 </html>
