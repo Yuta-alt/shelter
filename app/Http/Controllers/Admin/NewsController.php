@@ -14,4 +14,3 @@ class NewsController extends Controller
 
 }
 
-// admin
