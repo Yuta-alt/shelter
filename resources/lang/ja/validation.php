@@ -152,7 +152,13 @@ return [
         'name' => '氏名',
         'gender' => '性別',
         'hobby' => '趣味',
-        'introduction' => '自己紹介欄'
+        'introduction' => '自己紹介欄',
+        
+        'place' => '名称',
+        'address' => '所在地',
+        'tel' => 'tel',
+        'URL' => 'URL'
+        
     ],
 
 ];
