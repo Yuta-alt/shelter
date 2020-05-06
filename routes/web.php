@@ -26,15 +26,17 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
     Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
     Route::get('profile/delete', 'Admin\ProfileController@delete')->middleware('auth');
+    
+    Route::get('shelter/create', 'Admin\SheltersController@add')->middleware('auth');
+    Route::post('shelter/create', 'Admin\SheltersController@create')->middleware('auth');
+    Route::get('shelter', 'Admin\SheltersController@index')->middleware('auth');
+    Route::get('shelter/edit', 'Admin\SheltersController@edit')->middleware('auth');
+    Route::get('shelter/delete', 'Admin\SheltersController@delete')->middleware('auth');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('admin.top.index');
-});
-
-// Route::get('/', 'ProfileController@index');
-// Route::get('/', 'NewsController@index');
+// Route::get('/', 'Admin\NewsController@index')->middleware('auth');
+Route::get('/', 'Admin\TopController@index')->middleware('auth');
