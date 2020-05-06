@@ -13,23 +13,8 @@ class SheltersController extends Controller
         return view('admin.shelter.create');
     }
     
-    public function index(Request $request)
-    {
-      $cond_place = $request->cond_place;
-      if ($cond_place != '') {
-          // 検索されたら検索結果を取得する
-          $posts = Shelters::where('place', $cond_place)->get();
-      } else {
-          // それ以外はすべてのニュースを取得する
-          $posts = Shelters::all();
-      }
-      return view('admin.shelter.index', ['posts' => $posts, 'cond_place' => $cond_place]);
-    }
-    
     public function create(Request $request)
     {
-        
-        // 以下を追記
       // Varidationを行う
       $this->validate($request, Shelters::$rules);
 
@@ -48,7 +33,6 @@ class SheltersController extends Controller
     
     public function edit(Request $request)
     {
-      // Shelters Modelからデータを取得する
       $shelter = Shelters::find($request->id);
       if (empty($shelter)) {
         abort(404);    
@@ -56,9 +40,38 @@ class SheltersController extends Controller
       return view('admin.shelter.edit', ['shelter_form' => $shelter]);
     }
     
+    public function update(Request $request)
+    {
+        // Validationをかける
+      $this->validate($request, Shelters::$rules);
+      // Shelters Modelからデータを取得する
+      $shelter = Shelters::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $shelter_form = $request->all();
+      
+      unset($shelter_form['_token']);
+      // 該当するデータを上書きして保存する
+      $shelter->fill($shelter_form)->save();
+      
+      return redirect('admin/shelter/');
+    }
+    
+    public function index(Request $request)
+    {
+      $cond_place = $request->cond_place;
+      if ($cond_place != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Shelters::where('place', $cond_place)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = Shelters::all();
+      }
+      return view('admin.shelter.index', ['posts' => $posts, 'cond_place' => $cond_place]);
+    }
+    
     public function delete(Request $request)
     {
-      // 該当するTop Modelを取得
+      // 該当するShelters Modelを取得
       $shelter = Shelters::find($request->id);
       // 削除する
       $shelter->delete();
