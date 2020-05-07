@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Shelters;
+use App\News;
 
 class SheltersController extends Controller
 {
@@ -66,6 +67,7 @@ class SheltersController extends Controller
           // それ以外はすべてのニュースを取得する
           $posts = Shelters::all();
       }
+      
       return view('admin.shelter.index', ['posts' => $posts, 'cond_place' => $cond_place]);
     }
     

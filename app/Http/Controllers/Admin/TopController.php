@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Shelters;
+use App\News;
 
 class TopController extends Controller
 {
@@ -13,11 +14,23 @@ class TopController extends Controller
       $cond_place = $request->cond_place;
       if ($cond_place != '') {
           // 検索されたら検索結果を取得する
-          $posts = Shelters::where('place', $cond_place)->get();
+          $shelters = Shelters::where('place', $cond_place)->get();
       } else {
           // それ以外はすべてのニュースを取得する
-          $posts = Shelters::all();
+          $shelters = Shelters::all();
       }
-      return view('admin.shelter.index_top', ['posts' => $posts, 'cond_place' => $cond_place]);
+      
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を取得する
+          $news = News::where('title', $cond_title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $news = News::all();
+      }
+      
+      return view('admin.shelter.index_top', ['shelters' => $shelters, 
+      'cond_title' => $cond_title, 'news' => $news, 'cond_place' => $cond_place]);
+   
     }
 }
