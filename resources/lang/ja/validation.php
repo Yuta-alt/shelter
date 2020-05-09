@@ -155,6 +155,7 @@ return [
         'introduction' => '自己紹介欄',
         
         'place' => '名称',
+        'cities' => '市町村',
         'address' => '所在地',
         'tel' => 'tel',
         'URL' => 'URL'

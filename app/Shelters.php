@@ -11,6 +11,7 @@ class Shelters extends Model
     // 以下を追記
     public static $rules = array(
         'place' => 'required',
+        'cities' => 'required',
         'address' => 'required',
         'tel' => '',
         'URL' => '',

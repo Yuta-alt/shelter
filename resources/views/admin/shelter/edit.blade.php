@@ -21,6 +21,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-md-2" for="cities">市町村</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="cities" value="{{ $shelter_form->cities }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-md-2" for="address">所在地</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="address" value="{{ $shelter_form->address }}">

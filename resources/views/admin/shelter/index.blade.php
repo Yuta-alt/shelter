@@ -33,7 +33,8 @@
                             <thead>
                                 <tr>
                                     <th width="5%">ID</th>
-                                    <th width="15%">名称</th>
+                                    <th width="10%">名称</th>
+                                    <th width="5%">市町村</th>
                                     <th width="30%">所在地</th>
                                     <th width="20%">tel</th>
                                     <th width="20%">URL</th>
@@ -45,6 +46,7 @@
                                     <tr>
                                         <th>{{ $shelter->id }}</th>
                                         <td>{{ \Str::limit($shelter->place, 50) }}</td>
+                                        <td>{{ \Str::limit($shelter->cities, 50) }}</td>
                                         <td>{{ \Str::limit($shelter->address, 100) }}</td>
                                         <td>{{ \Str::limit($shelter->tel, 40) }}</td>
                                         <td>{{ \Str::limit($shelter->URL, 200) }}</td>

@@ -26,6 +26,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-md-2">市町村</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="cities" value="{{ old('cities') }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-md-2">所在地</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="address" value="{{ old('address') }}">
