@@ -1,60 +1,31 @@
-<?php 
-$file=fopen ('file://IT/tech_boost/Mie_shelter_1p.txt', 'w');
+<?php
+/* ファイルポインタをオープン */
+$file = fopen("Mie_shelter_1p.txt", "r+");
+$contents = null;
 
-unset($file['表示']);
-unset($file['○']);
+// while ($line = fgets($file)) {
+    // $result = str_replace('表示', '', $line);
+//     // fwrite($line, $result);
+//     // $result = str_replace('○', '', $line);
+//     // fwrite($line, $result);
+//     echo $result."test";
+//     // $result = mysql_fetch_array($line);
+//     // echo $result;
+// }
 
+while ($line = fgets($file)){
+    $line = str_replace("表示", "", $line);
+    $line = str_replace("○", "", $line);
+    if($line == ""){
+        $contents .= $line;
+        echo "test";
+    }
+}
+// ファイルポインタを先頭に戻す
+rewind($file);
+
+// 書き込み
+fwrite( $file, $contents);
 fclose($file);
 
-
-
-// <?php
-// /* ファイルポインタをオープン */
-// $file = fopen("Mie_shelter_1p", "r");
- 
-// /* ファイルを1行ずつ出力 */
-// if($file){
-//   //ゴミデータの削除処理
-//   $trash_flg = false;
-//   while ($line = fgets($file)){
-//     //************************************
-//     //「ここはゴミデータの（読み飛ばし処理の）開始」
-//     //と
-//     //「実データの始まり（出力の開始）」
-//     //を判定すればいい。
-//     //************************************
-
-//     //↓参考までに作りかけのコード
-//     // $line_array = explode(' ', $line);
-//     // if($line_array[0] = '名称'){
-//     //   $trash_flg = true;  //ゴミデータ範囲フラグをtrue
-//     //   continue;
-//     // }
-//     // if(count($line_array) > 5){
-//     //   $trash_flg = false;
-//     // }
-//     // if($trash_flg = true){
-      
-//     // }
-//   }
-
-//   while ($line = fgets($file)) {
-//   //   echo $line;
-//     $line_array = explode(' ', $line);
-
-//     //************************************
-//     //避難所名が改行になっているものを元に戻す。
-//     // count($line_array) < 2 に該当する行の文字列と、
-//     // 次の行の先頭をくっつけて1行として出力すればいい
-//     //************************************
-
-//     //************************************
-//     //出力するときに配列の要素の間に「,」を入れていく
-//     //************************************
-
-//   }
-// }
- 
-// /* ファイルポインタをクローズ */
-// fclose($file);
 ?>
