@@ -1,31 +1,36 @@
 <?php
 /* ファイルポインタをオープン */
-$file = fopen("Mie_shelter_1p.txt", "r+");
+$file = fopen("test.txt", "r+");
 $contents = null;
-
-// while ($line = fgets($file)) {
-    // $result = str_replace('表示', '', $line);
-//     // fwrite($line, $result);
-//     // $result = str_replace('○', '', $line);
-//     // fwrite($line, $result);
-//     echo $result."test";
-//     // $result = mysql_fetch_array($line);
-//     // echo $result;
-// }
 
 while ($line = fgets($file)){
     $line = str_replace("表示", "", $line);
     $line = str_replace("○", "", $line);
-    if($line == ""){
-        $contents .= $line;
-        echo "test";
-    }
-}
+    // $line = preg_replace(" /^\r\n/m ", "", $line);
+    // if($line == ""){
+    //     $contents .= $line;
+    // }
+    // $line = str_replace(PHP_EOL, '', $line);
+    $contents .= $line;
+    
+    // 変数の初期化
+    // $array = null;
+    // $slice_array = null;
+    // // 配列を用意
+    // $array = array("Mie_shelter_1p.txt");
+    // // 要素を削除
+    // $slice_array = array_splice($array, 4, 7, null);
+    // // 削除した後の配列を出力
+    // var_dump($array);
+    // // 削除された部分を出力
+    // var_dump($slice_array);
+};
+
+
+echo "test\n";
 // ファイルポインタを先頭に戻す
 rewind($file);
-
 // 書き込み
-fwrite( $file, $contents);
+fwrite($file, $contents);
 fclose($file);
-
 ?>
