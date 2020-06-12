@@ -1,20 +1,27 @@
 <?php
-$file = 'Mie_shelter_1p.txt';
-// ファイルをオープンして既存のコンテンツを取得します
-$current = file_get_contents($file);
-// ↓file内の消したい文字を空白で置き換える
-$current = str_replace("表示", "", $current);
-$current = str_replace("○", "", $current);
-// ↓特定の文字を持つ行そのものを削除する
-$current = preg_replace("/^※/", "", $current);
+$file = fopen("Mie_write.csv", "r+");
+$filename = "Mie_write.txt";
+$array = file($filename); //配列
+//or
+// $strGet = file_get_contents($filename); //文字列
 
-// ↓結果をファイルに書き出します
-file_put_contents($file, $current);
+$i = 0;
+while(count($array) > $i){
 
+  //下の処理はfileメソッドを使う想定
+  $name = $array[$i]; //←「避難所名A」
+  $city = $array[$i+1];
+  $address = $array[$i+2];
 
-// //↓改行そのものをなくすケース
-// $current = trim(("\r\n", "\r", "\n"), "", $current);
-// ↓空白行を消したい
-// $current = preg_replace('/^\r\n/m',"", $current);
+  // $ar = array($name, $shichoson, $jusho);
+  // $str_result = implode(",", $ar);
+  
+  //下記をファイルに書き込む
+  $contents .= $name.",".$city.",".$address;
 
+  $i .= 3;
+}
+$write = fopen("Mie_write.csv", "w");
+fwrite($write, $contents);
+fclose($write);
 ?>
