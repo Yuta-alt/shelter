@@ -1,4 +1,7 @@
 <?php
+// "text_array.php"で編集後の"Mie_write.txt"
+// これをカンマ区切りのcsvに変換する作業
+
 // ↓架空のファイルを開く（＝新規のファイル作成）
 $file = fopen("Mie_write.csv", "w");
 // ↓参照するファイル名
@@ -16,9 +19,8 @@ for ($i = 0 ; $i <= count($array);$i++){
   $address = $array[$i*3+2];
 
   //下記をファイルに書き込む
+  // ※「.」は連結子。１行にまとめたいときは下記のように
   $contents .= $name.",".$city.",".$address;
-
-  // $i .= 3;
 }
 fclose($file);
 

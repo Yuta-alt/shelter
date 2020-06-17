@@ -1,5 +1,7 @@
 <?php
+// "Mie_read.txt"　の"表示"、"○"を削除し、それによりできた空白を詰める作業
 // PDFからデータ変換したのだが、macとwindowsで貼り付け結果に違いが出た　今回はwindows採用
+
 /* ファイルポインタをオープン */
 $file = fopen("Mie_read.txt", "r+");
 $contents = null;
@@ -18,6 +20,7 @@ while ($line = fgets($file)){
 fclose($file);
 
 // ↓別ファイルに"test.txt"から読み取った内容を書き出す
+    // ※上書き保存だと、文末にバグが発生したため＋元データ確保のため上書き保存はあまりしない
 $write = fopen("Mie_write.txt", "w");
 fwrite($write, $contents);
 fclose($write);
