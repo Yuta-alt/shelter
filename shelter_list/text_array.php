@@ -14,7 +14,6 @@ while ($line = fgets($file)){
     $line = preg_replace("/^(\s)*(\r|\n|\r\n)/m", "", $line); 
     // $line =  implode(',', $line);
     $contents .= $line;
-    // ↓(名称,市町村,住所)で１行を構成　という区切りにする。　＜＝ implodeを使う？
     
 };
 fclose($file);

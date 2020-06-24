@@ -18,8 +18,6 @@ class CreateSheltersTable extends Migration
             $table->string('place');
             $table->string('cities');
             $table->string('address');
-            $table->string('tel'); 
-            $table->string('URL'); 
             
             $table->timestamps();
         });
