@@ -15,8 +15,8 @@
                                     <th width="10%">名称</th>
                                     <th width="10%">市町村</th>
                                     <th width="10%">所在地</th>
-                                    <th width="10%">tel</th>
-                                    <th width="10%">URL</th>
+                                    <!--<th width="10%">tel</th>-->
+                                    <!--<th width="10%">URL</th>-->
                                 </tr>
                             </thead>
                             <tbody>
@@ -26,8 +26,8 @@
                                         <td>{{ \Str::limit($shel->place, 50) }}</td>
                                         <td>{{ \Str::limit($shel->cities, 50) }}</td>
                                         <td>{{ \Str::limit($shel->address, 100) }}</td>
-                                        <td>{{ \Str::limit($shel->tel, 40) }}</td>
-                                        <td>{{ \Str::limit($shel->URL, 200) }}</td>
+                                        <!--<td>{{ \Str::limit($shel->tel, 40) }}</td>-->
+                                        <!--<td>{{ \Str::limit($shel->URL, 200) }}</td>-->
                                     </tr>
                                 @endforeach
                             </tbody>

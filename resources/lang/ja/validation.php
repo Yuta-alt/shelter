@@ -158,7 +158,9 @@ return [
         'cities' => '市町村',
         'address' => '所在地',
         'tel' => 'tel',
-        'URL' => 'URL'
+        'URL' => 'URL',
+        
+        'FamilyName' => '苗字',
         
     ],
 

@@ -33,6 +33,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('shelter/edit', 'Admin\SheltersController@edit')->middleware('auth');
     Route::post('shelter/edit', 'Admin\SheltersController@update')->middleware('auth');
     Route::get('shelter/delete', 'Admin\SheltersController@delete')->middleware('auth');
+    
+    Route::get('family/create', 'Admin\FamilyController@add')->middleware('auth');
+    
 });
 
 Auth::routes();
