@@ -3,6 +3,14 @@
 
 @section('content')
     <div class="container">
+        <!DOCTYPE html>
+        <html>
+            <h1 style="text-align:center">
+                <font size="3">
+                <a href="https://f62e09a90c6c4456a29ef067cc9afe4e.vfs.cloud9.us-east-2.amazonaws.com/admin/news/">＜マイページ＞リンク先は仮</a>
+                </font>
+                </h1>
+        </html>
         <div class="row">
             <div class="list-shelters col-md-7 mx-auto">
                 <div class="row">
