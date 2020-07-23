@@ -11,23 +11,32 @@ class MypageController extends Controller
     {
       return view('admin.mypage.index');
     }
-    // public function add()
+    
+    
+    // public function edit(Request $request)
     // {
-    //     return view('admin.mypage.create');
+    //   // News Modelからデータを取得する
+    //   $news = News::find($request->id);
+    //   if (empty($news)) {
+    //     abort(404);    
+    //   }
+    //   return view('admin.news.edit', ['news_form' => $news]);
     // }
 
-    // public function create()
-    // {
-    //     return redirect('admin/mypage/create');
-    // }
 
-    // public function edit()
+    // public function update(Request $request)
     // {
-    //     return view('admin.mypage.edit');
-    // }
+    //   // Validationをかける
+    //   $this->validate($request, News::$rules);
+    //   // News Modelからデータを取得する
+    //   $news = News::find($request->id);
+    //   // 送信されてきたフォームデータを格納する
+    //   $news_form = $request->all();
+    //   unset($news_form['_token']);
 
-    // public function update()
-    // {
-    //     return redirect('admin/mypage/edit');
+    //   // 該当するデータを上書きして保存する
+    //   $news->fill($news_form)->save();
+
+    //   return redirect('admin/news');
     // }
 }
