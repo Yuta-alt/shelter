@@ -9,7 +9,7 @@
                 <font size="3">
                 <a href="https://f62e09a90c6c4456a29ef067cc9afe4e.vfs.cloud9.us-east-2.amazonaws.com/admin/mypage/" role="button" class="btn btn-primary">マイページ</a>
                 </font>
-                </h1>
+            </h1>
         </html>
         <div class="row">
             <div class="list-shelters col-md-7 mx-auto">
