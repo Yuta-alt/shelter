@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropFamilyId extends Migration
+class CreatePlacesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class DropFamilyId extends Migration
      */
     public function up()
     {
-        Schema::table('families', function (Blueprint $table) {
-            $table->dropColumn('family_id');
+        Schema::create('places', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('state');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class DropFamilyId extends Migration
      */
     public function down()
     {
-        Schema::table('families', function (Blueprint $table) {
-            $table->integer('family_id');  //カラム追加
-        });
+        Schema::dropIfExists('places');
     }
 }

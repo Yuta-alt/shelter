@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWhereTable extends Migration
+class CreateTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateWhereTable extends Migration
      */
     public function up()
     {
-        Schema::create('where', function (Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('state');
+            $table->integer('user_id');
+            $table->integer('shelter_id');
+            $table->string('comment');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateWhereTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('where');
+        Schema::dropIfExists('topics');
     }
 }

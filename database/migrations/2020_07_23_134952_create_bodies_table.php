@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBodyTable extends Migration
+class CreateBodiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBodyTable extends Migration
      */
     public function up()
     {
-        Schema::create('body', function (Blueprint $table) {
+        Schema::create('bodies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('status');
             $table->integer('user_id');
@@ -28,6 +28,6 @@ class CreateBodyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('body');
+        Schema::dropIfExists('bodies');
     }
 }
