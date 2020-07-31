@@ -35,8 +35,15 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('shelter/delete', 'Admin\SheltersController@delete')->middleware('auth');
     
     Route::get('mypage', 'Admin\MypageController@index')->middleware('auth');
-    Route::get('mypage/edit_family', 'Admin\FamilyController@edit')->middleware('auth');
-    Route::post('mypage/edit_family', 'Admin\FamilyController@edit')->middleware('auth');
+    Route::get('mypage/edit', 'Admin\MypageController@edit')->middleware('auth');
+    Route::post('mypage/edit', 'Admin\MypageController@edit')->middleware('auth');
+    
+    Route::get('family/create', 'Admin\FamilyController@add')->middleware('auth');
+    Route::post('family/create', 'Admin\FamilyController@create')->middleware('auth');
+    Route::get('family', 'Admin\FamilyController@index')->middleware('auth');
+    Route::get('family/edit', 'Admin\FamilyController@edit')->middleware('auth');
+    Route::post('family/edit', 'Admin\FamilyController@update')->middleware('auth');
+    Route::get('family/delete', 'Admin\FamilyController@delete')->middleware('auth');
     
 });
 

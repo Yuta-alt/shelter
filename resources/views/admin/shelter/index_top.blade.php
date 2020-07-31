@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('place', '登録済み避難所の一覧')
+@section('title', 'home')
 
 @section('content')
     <div class="container">
@@ -7,7 +7,7 @@
         <html>
             <h1 style="text-align:center">
                 <font size="3">
-                <a href="https://f62e09a90c6c4456a29ef067cc9afe4e.vfs.cloud9.us-east-2.amazonaws.com/admin/mypage/" role="button" class="btn btn-primary">マイページ</a>
+                <a href="{{ action('Admin\MypageController@index') }}" role="button" class="btn btn-primary">マイページ</a>
                 </font>
             </h1>
         </html>

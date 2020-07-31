@@ -5,50 +5,87 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Families;
+use App\Family;
 use App\User;
 use Carbon\Carbon;
 
 class FamilyController extends Controller
 {
-    public function edit(Request $request)
+    public function add()
     {
-      // Families Modelからデータを取得する
-      $families = Families::find($request->id);
-      
-      // 下記ver.だと404エラー発生
-      // if (empty($families)) {
-      //   abort(404);    
-      // }
-      // return view('admin.mypage.edit_family', ['families_form' => edit_family]);
-      return view('admin.mypage.edit_family');
-      
+        return view('admin.family.create');
+    }
+    
+    public function create(Request $request)
+    {
+        
+        // 以下を追記
       // Varidationを行う
-      $this->validate($request, Families::$rules);
-      $families = new Families;
+      $this->validate($request, Family::$rules);
+
+      $family = new Family;
       $form = $request->all();
-      
+
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
 
       // データベースに保存する
-      $families->fill($form);
-      $families->save();
+      $family->fill($form);
+      $family->save();
+      
+      
+    // admin/news/createにリダイレクトする
+    return redirect('admin/family/create');
+    } 
+    
+    public function index(Request $request)
+    {
+      $cond_title = $request->cond_title;
+      if ($cond_title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Family::where('title', $cond_title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = Family::all();
+      }
+      return view('admin.family.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
-    public function update(Request $request)
-  {
-      // Validationをかける
-      $this->validate($request, Families::$rules);
+    public function edit(Request $request)
+    {
       // Families Modelからデータを取得する
-      $news = Families::find($request->id);
+      $family = Family::find($request->id);
+      return view('admin.family.edit', ['family_form' => $family]);
+    }
+
+
+    public function update(Request $request)
+    {
+        // Validationをかける
+      $this->validate($request, Family::$rules);
+      // Families Modelからデータを取得する
+      $family = Family::find($request->id);
       // 送信されてきたフォームデータを格納する
-      $families_form = $request->all();
-      unset($families_form['_token']);
-
+      $family_form = $request->all();
+      unset($family_form['_token']);
       // 該当するデータを上書きして保存する
-      $families->fill($families_form)->save();
+      $family->fill($family_form)->save();
+      
+      // 以下を追記
+        $user = new User;
+        $user->family_id = $family->id;
+        // $user->edited_at = Carbon::now();
+        $user->save();
 
-      return redirect('admin/mypage');
-  }
+      return redirect('admin/family');
+    }
+    
+    public function delete(Request $request)
+    {
+      // 該当するNews Modelを取得
+      $family = Family::find($request->id);
+      // 削除する
+      $family->delete();
+      return redirect('admin/family/');
+    }
 }

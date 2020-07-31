@@ -24,25 +24,25 @@ class SheltersTableSeeder extends Seeder
             // $ free -m　で確認
         // mysql -u root からの　select * from myshelter.shelters;　で取り込んだ表一覧の展開
         
-        // $file = new SplFileObject(base_path('shelter_list/Mie_write.csv'));
-        // $file->setFlags(
-        //     \SplFileObject::READ_CSV |
-        //     \SplFileObject::READ_AHEAD |
-        //     \SplFileObject::SKIP_EMPTY |
-        //     \SplFileObject::DROP_NEW_LINE
-        // );
-        // $list = [];
-        // $now = Carbon::now();
-        // foreach($file as $line) {
-        //     $list[] = [
-        //         "place" => $line[0],
-        //         "cities" => $line[1],
-        //         "address" => $line[2],
-        //         "created_at" => $now,
-        //         "updated_at" => $now,
-        //     ];
-        // }
+        $file = new SplFileObject(base_path('shelter_list/Mie_write.csv'));
+        $file->setFlags(
+            \SplFileObject::READ_CSV |
+            \SplFileObject::READ_AHEAD |
+            \SplFileObject::SKIP_EMPTY |
+            \SplFileObject::DROP_NEW_LINE
+        );
+        $list = [];
+        $now = Carbon::now();
+        foreach($file as $line) {
+            $list[] = [
+                "place" => $line[0],
+                "cities" => $line[1],
+                "address" => $line[2],
+                "created_at" => $now,
+                "updated_at" => $now,
+            ];
+        }
 
-        // DB::table("myshelter.shelters")->insert($list);
+        DB::table("shelter_database.shelters")->insert($list);
     }
 }

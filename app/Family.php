@@ -4,13 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Families extends Model
+class Family extends Model
 {
-    public function add()
-    {
-      return view('admin.mypage.edit_family');
-    }
-  
     protected $guarded = array('id');
 
     // 以下を追記
