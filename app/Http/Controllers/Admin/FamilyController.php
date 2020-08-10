@@ -61,6 +61,8 @@ class FamilyController extends Controller
 
     public function update(Request $request)
     {
+      // ↓デバッグコマンド
+      // dd($request); 
         // Validationをかける
       $this->validate($request, Family::$rules);
       // Families Modelからデータを取得する
@@ -71,11 +73,7 @@ class FamilyController extends Controller
       // 該当するデータを上書きして保存する
       $family->fill($family_form)->save();
       
-      // 以下を追記
-        $user = new User;
-        $user->family_id = $family->id;
-        // $user->edited_at = Carbon::now();
-        $user->save();
+      
 
       return redirect('admin/family');
     }

@@ -29,7 +29,7 @@ class TopController extends Controller
           $news = News::all();
       }
       
-      return view('admin.shelter.index_top', ['shelters' => $shelters, 
+      return view('admin.shelter.top', ['shelters' => $shelters, 
       'cond_title' => $cond_title, 'news' => $news, 'cond_place' => $cond_place]);
    
     }

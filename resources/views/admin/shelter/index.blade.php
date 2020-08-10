@@ -1,5 +1,5 @@
-@extends('layouts.admin')
-@section('place', '登録済み避難所の一覧')
+@extends('layouts.toolbar')
+@section('title', '避難所一覧')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,8 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('Admin\SheltersController@add') }}" role="button" class="btn btn-success">新規登録</a>
+                <a href="{{ action('Admin\SheltersController@add') }}"
+                    role="button" class="btn btn-success">新規登録</a>
             </div>
             <div class="col-md-8">
                 <form action="{{ action('Admin\SheltersController@index') }}" method="get">
@@ -47,9 +48,9 @@
                                         <th>{{ $shelter->id }}</th>
                                         <td>{{ \Str::limit($shelter->place, 50) }}</td>
                                         <td>{{ \Str::limit($shelter->cities, 50) }}</td>
-                                        <!--<td>{{ \Str::limit($shelter->address, 100) }}</td>-->
+                                        <td>{{ \Str::limit($shelter->address, 100) }}</td>
                                         <!--<td>{{ \Str::limit($shelter->tel, 40) }}</td>-->
-                                        <td>{{ \Str::limit($shelter->URL, 200) }}</td>
+                                        <!--<td>{{ \Str::limit($shelter->URL, 200) }}</td>-->
                                         <td>
                                             <div>
                                                 <a href="{{ action('Admin\SheltersController@edit', ['id' => $shelter->id]) }}">編集</a>

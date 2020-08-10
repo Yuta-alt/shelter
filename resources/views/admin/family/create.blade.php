@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.toolbar')
 @section('title', '苗字の新規作成')
 
 @section('content')

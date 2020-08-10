@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.toolbar')
 @section('title', '避難所登録の編集')
 
 @section('content')
