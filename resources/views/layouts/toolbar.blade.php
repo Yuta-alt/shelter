@@ -23,9 +23,14 @@
         <!-- Styles -->
         {{-- Laravel標準で用意されているCSSを読み込みます --}}
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/header.css') }}" rel="stylesheet">
         {{-- この章の後半で作成するCSSを読み込みます --}}
         <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+        
+        {{-- 各ページで共有するヘッダーのCSSを読み込む --}}
+        <link href="{{ secure_asset('css/header.css') }}" rel="stylesheet">
+        {{-- Laravel標準では無いCSSを読み込む --}}
+        <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+        
     </head>
     <body>
         <div id="app">

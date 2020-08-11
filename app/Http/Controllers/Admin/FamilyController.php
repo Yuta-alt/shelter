@@ -34,8 +34,8 @@ class FamilyController extends Controller
       $family->save();
       
       
-    // admin/news/createにリダイレクトする
-    return redirect('admin/family/create');
+    // admin/mypageにリダイレクトする
+    return redirect('admin/mypage');
     } 
     
     public function index(Request $request)
@@ -75,7 +75,7 @@ class FamilyController extends Controller
       
       
 
-      return redirect('admin/family');
+      return redirect('admin/mypage');
     }
     
     public function delete(Request $request)
@@ -84,6 +84,6 @@ class FamilyController extends Controller
       $family = Family::find($request->id);
       // 削除する
       $family->delete();
-      return redirect('admin/family/');
+      return redirect('admin/mypage');
     }
 }

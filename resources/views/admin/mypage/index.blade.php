@@ -3,56 +3,103 @@
 
 @section('content')
 <div class="container">
-  <div class="row">
-    <div class="col-md-10">
-        <h1>マイページ一覧</h1>
-    </div>
-    <div class="col-md-2">
-        <form action="{{ action('Admin\MypageController@edit') }}" method="get">
-            <div class="form-group row">
-                    {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="編集">
-            </div>
+  <div class="col-md-12 mx-auto">
+    <div class="row">
+      <h3>グループ一覧</h3>
+      <div class="botton">
+        <form action="{{ action('Admin\FamilyController@create') }}" method="get">
+          {{ csrf_field() }}
+          <input type="submit" class="btn btn-primary" value="新規グループ作成">
         </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="admin-news col-md-12 mx-auto">
-      <div class="row">
-        <table class="table table-dark" style="text-align:center;" border="3">
-          <thead>
-            <tr>
-              <th width="20%">項目</th>
-              <th width="40%">情報</th>
-              <th width="40%">更新日時</th>
-            </tr>
-          </thead>
-          <tbody>
-            <th>名前　(Name)</th>
-            <th>{{ Auth::user()->name }} <span class="caret"></span></th>
-            <th>-</th>
-          </tbody>
-          <tbody>
-            <th>苗字　(FamilyName)</th>
-            <th></th>
-            <th></th>
-          </tbody>
-          <tbody>
-            <th>健康状態　(Body)</th>
-            <th></th>
-            <th></th>
-          </tbody>
-          <tbody>
-            <th>現在地　(Where)</th>
-            <th></th>
-            <th></th>
-          </tbody>
-          <tbody>
-            <th>備考　(Topic)</th>
-            <th></th>
-            <th></th>
-          </tbody>
-        </table>
+      </div>
+      <div class="col-md-12 mx-auto">
+        <div class="row">
+          <table class="table table-dark" style="text-align:center;" border="3">
+            <thead>
+              <tr>
+                <th width="20%">グループ名</th>
+                <th width="10%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($posts as $family)
+                <tr>
+                  <th>{{ str_limit($family->FamilyName, 100) }}</th>
+                  <td>
+                    <div>
+                      <a href="{{ action('Admin\FamilyController@edit', ['id' => $family->id]) }}">グループ管理</a>
+                    </div>
+                    <div>
+                      <a href="{{ action('Admin\FamilyController@delete', ['id' => $family->id]) }}">削除</a>
+                    </div>
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <h3>承認通知：受信一覧</h3>
+      <div class="col-md-12 mx-auto">
+        <div class="row">
+          <table class="table table-dark" style="text-align:center;" border="3">
+            <thead>
+              <tr>
+                <th width="20%">ID</th>
+                <th width="20%">名前</th>
+                <th width="20%">招待先グループ</th>
+                <th width="10%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!--@foreach($posts as $family)-->
+              <!--  <tr>-->
+              <!--    <th>{{ str_limit($family->FamilyName, 100) }}</th>-->
+              <!--    <td>-->
+              <!--      <div>-->
+              <!--        <a href="{{ action('Admin\FamilyController@edit', ['id' => $family->id]) }}">グループ管理</a>-->
+              <!--      </div>-->
+              <!--      <div>-->
+              <!--        <a href="{{ action('Admin\FamilyController@delete', ['id' => $family->id]) }}">削除</a>-->
+              <!--      </div>-->
+              <!--    </td>-->
+              <!--  </tr>-->
+              <!--@endforeach-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <h3>承認通知：送信一覧</h3>
+      <div class="col-md-12 mx-auto">
+        <div class="row">
+          <table class="table table-dark" style="text-align:center;" border="3">
+            <thead>
+              <tr>
+                <th width="20%">ID</th>
+                <th width="20%">名前</th>
+                <th width="20%">招待先グループ</th>
+                <th width="10%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!--@foreach($posts as $family)-->
+              <!--  <tr>-->
+              <!--    <th>{{ str_limit($family->FamilyName, 100) }}</th>-->
+              <!--    <td>-->
+              <!--      <div>-->
+              <!--        <a href="{{ action('Admin\FamilyController@edit', ['id' => $family->id]) }}">グループ管理</a>-->
+              <!--      </div>-->
+              <!--      <div>-->
+              <!--        <a href="{{ action('Admin\FamilyController@delete', ['id' => $family->id]) }}">削除</a>-->
+              <!--      </div>-->
+              <!--    </td>-->
+              <!--  </tr>-->
+              <!--@endforeach-->
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

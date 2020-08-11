@@ -17,6 +17,7 @@ class CreateTopicsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('shelter_id');
+            $table->integer('body_id');
             $table->string('comment');
             $table->timestamps();
         });

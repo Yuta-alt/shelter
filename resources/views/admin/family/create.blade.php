@@ -1,11 +1,11 @@
 @extends('layouts.toolbar')
-@section('title', '苗字の新規作成')
+@section('title', 'グループの新規作成')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>苗字作成</h2>
+                <h2>グループ作成</h2>
                 <form action="{{ action('Admin\FamilyController@create') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>

@@ -14,7 +14,7 @@
             <div class="col-md-8">
                 <form action="{{ action('Admin\SheltersController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">名称</label>
+                        <label class="col-md-2">名称→<br>一字一句同じじゃないと検出されない欠陥あり</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_place" value="{{ $cond_place }}">
                         </div>
