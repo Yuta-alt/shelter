@@ -42,4 +42,15 @@ class User extends Authenticatable
     public static $rules = array(
         'family_id' => 'required',
     );
+    
+    public $incrementing = false;
+     
+    protected static function boot()
+    {
+        parent::boot();
+     
+        static::creating(function ($model) {
+            $model->{$model->getKeyName()} = Uuid::generate()->string;
+        });
+    }
 }

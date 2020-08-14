@@ -39,8 +39,7 @@
                         <tbody>
                             @foreach($posts as $family)
                                 <tr>
-                                    <th>{{ $family->id }}</th>
-                                    <td>{{ str_limit($family->FamilyName, 100) }}</td>
+                                    <th>{{ str_limit($family->FamilyName, 100) }}</th>
                                     <td>
                                         <div>
                                             <a href="{{ action('Admin\FamilyController@edit', ['id' => $family->id]) }}">編集</a>

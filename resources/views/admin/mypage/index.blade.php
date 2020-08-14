@@ -9,7 +9,7 @@
       <div class="botton">
         <form action="{{ action('Admin\FamilyController@create') }}" method="get">
           {{ csrf_field() }}
-          <input type="submit" class="btn btn-primary" value="新規グループ作成">
+          <input type="submit" class="btn btn-success" value="新規グループ作成">
         </form>
       </div>
       <div class="col-md-12 mx-auto">
@@ -40,7 +40,7 @@
         </div>
       </div>
       
-      <h3>承認通知：受信一覧</h3>
+      <h3>承認通知：受信元一覧</h3>
       <div class="col-md-12 mx-auto">
         <div class="row">
           <table class="table table-dark" style="text-align:center;" border="3">
@@ -71,7 +71,7 @@
         </div>
       </div>
       
-      <h3>承認通知：送信一覧</h3>
+      <h3>承認通知：送信先一覧</h3>
       <div class="col-md-12 mx-auto">
         <div class="row">
           <table class="table table-dark" style="text-align:center;" border="3">
@@ -79,7 +79,7 @@
               <tr>
                 <th width="20%">ID</th>
                 <th width="20%">名前</th>
-                <th width="20%">招待先グループ</th>
+                <th width="20%">招待元グループ</th>
                 <th width="10%">操作</th>
               </tr>
             </thead>

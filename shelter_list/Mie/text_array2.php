@@ -6,6 +6,7 @@
 $file = fopen("Mie_write.csv", "w");
 // ↓参照するファイル名
 $filename = "Mie_write.txt";
+$prefecture=三重県;
 $array = file($filename); //配列
 $i = 0;
 // ↓ 「Mie_write.txt の最後の行まで」と言う条件指定
@@ -20,7 +21,7 @@ for ($i = 0 ; $i <= count($array);$i++){
 
   //下記をファイルに書き込む
   // ※「.」は連結子。１行にまとめたいときは下記のように
-  $contents .= $name.",".$city.",".$address;
+  $contents .= $prefecture.",".$name.",".$city.",".$address;
 }
 fclose($file);
 

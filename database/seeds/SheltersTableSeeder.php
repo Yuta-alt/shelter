@@ -24,7 +24,7 @@ class SheltersTableSeeder extends Seeder
             // $ free -m　で確認
         // mysql -u root からの　select * from myshelter.shelters;　で取り込んだ表一覧の展開
         
-        $file = new SplFileObject(base_path('shelter_list/Mie_write.csv'));
+        $file = new SplFileObject(base_path('shelter_list/Mie/Mie_write.csv'));
         $file->setFlags(
             \SplFileObject::READ_CSV |
             \SplFileObject::READ_AHEAD |
@@ -35,9 +35,10 @@ class SheltersTableSeeder extends Seeder
         $now = Carbon::now();
         foreach($file as $line) {
             $list[] = [
-                "place" => $line[0],
-                "cities" => $line[1],
-                "address" => $line[2],
+                "prefecture" => $line[0],
+                "place" => $line[1],
+                "cities" => $line[2],
+                "address" => $line[3],
                 "created_at" => $now,
                 "updated_at" => $now,
             ];

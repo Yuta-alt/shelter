@@ -30,6 +30,7 @@
         <link href="{{ secure_asset('css/header.css') }}" rel="stylesheet">
         {{-- Laravel標準では無いCSSを読み込む --}}
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+        <!--下に書かれたものが優先。style=""などのセレクターごとで順位変わる-->
         
     </head>
     <body>
@@ -87,6 +88,7 @@
                         role="button" class="btn btn-primary">避難所一覧</a></li>
                     <li><a href="{{ action('Admin\MypageController@index') }}" 
                         role="button" class="btn btn-primary">マイページ</a></li>
+                    <li><h5>ユーザーID：{{ Auth::user()->id }}</h5></li>
                 </ul>
             </nav>
             {{-- ここまでナビゲーションバー --}}

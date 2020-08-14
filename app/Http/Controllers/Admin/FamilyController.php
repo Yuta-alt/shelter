@@ -73,8 +73,6 @@ class FamilyController extends Controller
       // 該当するデータを上書きして保存する
       $family->fill($family_form)->save();
       
-      
-
       return redirect('admin/mypage');
     }
     

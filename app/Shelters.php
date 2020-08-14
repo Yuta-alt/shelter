@@ -13,6 +13,7 @@ class Shelters extends Model
         'place' => 'required',
         'cities' => 'required',
         'address' => 'required',
+        'prefecture' => 'required',
         'tel' => '',
         'URL' => '',
     );
