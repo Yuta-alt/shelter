@@ -88,7 +88,7 @@
                         role="button" class="btn btn-primary">避難所一覧</a></li>
                     <li><a href="{{ action('Admin\MypageController@index') }}" 
                         role="button" class="btn btn-primary">マイページ</a></li>
-                    <li><h5>ユーザーID：{{ Auth::user()->id }}</h5></li>
+                    <li><h5>UUID：{{ Auth::user()->uuid }}</h5></li>
                 </ul>
             </nav>
             {{-- ここまでナビゲーションバー --}}
