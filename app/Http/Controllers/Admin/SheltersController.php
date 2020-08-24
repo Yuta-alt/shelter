@@ -64,7 +64,7 @@ class SheltersController extends Controller
           // 検索されたら検索結果を取得する
           $posts = Shelters::where('place', $cond_place)->get();
       } else {
-          // それ以外はすべてのニュースを取得する
+          // それ以外はすべての避難所を取得する
           $posts = Shelters::all();
       }
       

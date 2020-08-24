@@ -62,7 +62,7 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="uuid" class="col-md-4 col-form-label text-md-right">{{ __('Uuid') }}</label>
+                            <label for="uuid" class="col-md-4 col-form-label text-md-right">{{ __('識別id') }}</label>
 
                             <div class="col-md-6">
                                 <input id="uuid" type="uuid" class="form-control @error('uuid') is-invalid @enderror" name="uuid" required autocomplete="new-uuid">

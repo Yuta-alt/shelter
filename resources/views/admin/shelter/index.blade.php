@@ -23,6 +23,13 @@
             <!--        </div>-->
             <!--    </form>-->
             <!--</div>-->
+            <div class="col-md-12 mx-auto">
+            <select type="text" class="form-control" name="a">                          
+                @foreach($posts as $shelter)
+                    <option value="{{ $shelter->prefecture }}">{{ $shelter->prefecture }}</option>
+                @endforeach
+            </select>
+        
             <div class="table-responsive">
                 <table class="table table-dark">
                     <thead>
@@ -43,8 +50,6 @@
                                 <td>{{ \Str::limit($shelter->place, 50) }}</td>
                                 <td>{{ \Str::limit($shelter->cities, 50) }}</td>
                                 <td>{{ \Str::limit($shelter->address, 100) }}</td>
-                                <!--<td>{{ \Str::limit($shelter->tel, 40) }}</td>-->
-                                <!--<td>{{ \Str::limit($shelter->URL, 200) }}</td>-->
                                 <td>
                                     <div>
                                         <a href="{{ action('Admin\SheltersController@edit', ['id' => $shelter->id]) }}">編集</a>
