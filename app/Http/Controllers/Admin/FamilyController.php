@@ -56,6 +56,8 @@ class FamilyController extends Controller
       // Families Modelからデータを取得する
       $family = Family::find($request->id);
       return view('admin.family.edit', ['family_form' => $family]);
+      
+      
     }
 
 

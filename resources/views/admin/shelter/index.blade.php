@@ -9,27 +9,30 @@
                 <a href="{{ action('Admin\SheltersController@add') }}"
                     role="button" class="btn btn-success">新規登録</a>
             </div>
-            <!--<div class="col-md-8">-->
-            <!--    <form action="{{ action('Admin\SheltersController@index') }}" method="get">-->
-            <!--        <div class="form-group row">-->
-            <!--            <label class="col-md-2">名称→<br>一字一句同じじゃないと検出されない欠陥あり</label>-->
-            <!--            <div class="col-md-8">-->
-            <!--                <input type="text" class="form-control" name="cond_place" value="{{ $cond_place }}">-->
-            <!--            </div>-->
-            <!--            <div class="col-md-2">-->
-            <!--                {{ csrf_field() }}-->
-            <!--                <input type="submit" class="btn btn-primary" value="検索">-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </form>-->
-            <!--</div>-->
-            <div class="col-md-12 mx-auto">
-            <select type="text" class="form-control" name="a">                          
-                @foreach($posts as $shelter)
-                    <option value="{{ $shelter->prefecture }}">{{ $shelter->prefecture }}</option>
-                @endforeach
-            </select>
-        
+                
+            <form action="{{ action('Admin\SheltersController@index') }}" method="get">
+                <div class="form-group row">
+                    <!--<label class="col-md-2">都道府県</label>-->
+                    <!--<div class="col-md-8">-->
+                    <!--    <input type="text" class="form-control" name="cond_prefecture" value={{ $cond_prefecture }}>-->
+                    <!--</div>-->
+                    <label class="col-md-2">市町村</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="cond_cities" value={{ $cond_cities }}>
+                    </div>
+                    <div class="col-md-2">
+                        {{ csrf_field() }}
+                        <input type="submit" class="btn btn-primary" value="検索">
+                    </div>
+                </div>
+            </form>
+                
+                <!--<select type="text" class="form-control" name="b">                          -->
+                <!--    @foreach($posts as $shelter)-->
+                <!--        <option value="{{ $shelter->cities }}">{{ $shelter->cities }}</option>-->
+                <!--    @endforeach-->
+                <!--</select>-->
+            
             <div class="table-responsive">
                 <table class="table table-dark">
                     <thead>
@@ -38,8 +41,6 @@
                             <th width="10%">名称</th>
                             <th width="10%">市町村</th>
                             <th width="30%">所在地</th>
-                            <!--<th width="20%">tel</th>-->
-                            <!--<th width="20%">URL</th>-->
                             <th width="10%">操作</th>
                         </tr>
                     </thead>
@@ -63,7 +64,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
 </div>
 @endsection

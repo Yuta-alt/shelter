@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\Shelters;
 use App\News;
+use Carbon\Carbon;
 
 class SheltersController extends Controller
 {
@@ -59,16 +60,25 @@ class SheltersController extends Controller
     
     public function index(Request $request)
     {
-      $cond_place = $request->cond_place;
-      if ($cond_place != '') {
+      $cond_prefecture = $request->cond_prefecture;
+      if ($cond_prefecture != '') {
           // 検索されたら検索結果を取得する
-          $posts = Shelters::where('place', $cond_place)->get();
+          $posts = Shelters::where('prefecture', $cond_prefecture)->get();
+      } else {
+          // それ以外はすべての避難所を取得する
+          $posts = Shelters::all();
+      }
+      $cond_cities = $request->cond_cities;
+      if ($cond_cities != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Shelters::where('cities', $cond_cities)->get();
       } else {
           // それ以外はすべての避難所を取得する
           $posts = Shelters::all();
       }
       
-      return view('admin.shelter.index', ['posts' => $posts, 'cond_place' => $cond_place]);
+      return view('admin.shelter.index', ['posts' => $posts,
+        'cond_prefecture' => $cond_prefecture, 'cond_cities' => $cond_cities]);
     }
     
     public function delete(Request $request)

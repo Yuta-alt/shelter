@@ -16,7 +16,8 @@
                         </ul>
                     @endif
                     <div>
-                        <a> 選択中グループ名："ここに編集前のグループ名称を引っ張ってくる"</a>
+                        <a> 編集中グループ名：</a>
+                        <a> {{$family_form->FamilyName}}</a>
                     </div>
                     <div>
                         <input type="text" class="form-control" name="FamilyName"

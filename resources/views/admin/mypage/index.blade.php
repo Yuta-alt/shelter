@@ -5,6 +5,33 @@
 <div class="container">
   <div class="col-md-12 mx-auto">
     <div class="row">
+        <h3>ユーザーステータス</h3>
+        <table class="table table-dark" style="text-align:center;" border="3">
+            <thead>
+              <tr>
+                <th width="10%">名前</th>
+                <th width="20%">所在</th>
+                <th width="20%">健康状態</th>
+                <th width="30%">備考</th>
+                <th width="5%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($posts as $news)
+                  <tr>
+                      <th>{{ Auth::user()->name }}</th>
+                      <td>{{ str_limit($news->title, 100) }}</td>
+                      <td>{{ str_limit($news->body, 250) }}</td>
+                      <td>{{ str_limit($news->body, 250) }}</td>
+                      <td>
+                          <div>
+                              <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>
+                          </div>
+                      </td>
+                  </tr>
+              @endforeach
+            </tbody>
+        </table>
       <h3>グループ一覧</h3>
       <div class="botton">
         <form action="{{ action('Admin\FamilyController@create') }}" method="get">
