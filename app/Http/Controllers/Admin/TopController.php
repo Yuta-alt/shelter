@@ -20,7 +20,7 @@ class TopController extends Controller
           $news = News::all();
       }
       
-      return view('admin.mypage.top',
+      return view('admin.top.index',
       ['cond_title' => $cond_title, 'news' => $news]);
    
     }

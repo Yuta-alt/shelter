@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Admin\TopController@index')->name('home');
 
 // Route::get('/', 'Admin\NewsController@index')->middleware('auth');
 Route::get('/', 'Admin\TopController@index')->middleware('auth');
