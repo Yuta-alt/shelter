@@ -85,7 +85,7 @@
                     <li><a href="{{ action('Admin\TopController@index') }}">ホーム</a></li>
                     <li><a href="{{ action('Admin\SheltersController@index') }}">避難所一覧</a></li>
                     <li><a href="{{ action('Admin\MypageController@index') }}">マイページ</a></li>
-                    <li><h5>識別ID：{{ Auth::user()->uuid }}</h5></li>
+                    <li><h5>任意ID：{{ Auth::user()->uuid }}</h5></li>
                 </ul>
             </nav>
             {{-- ここまでナビゲーションバー --}}

@@ -54,10 +54,10 @@
             <div>
                 <form action="{{ action('Admin\NewsController@index') }}" method="get">
                     <div>
-                        <a>相手先ID：</a>
+                        <a>任意ID入力欄：</a>
                     </div>
                     <div>
-                        <input type="text" class="form-control" name="#" value="#" >
+                        <input type="text" class="form-control" name="" value="" >
                     </div>
                     <div>
                         {{ csrf_field() }}
@@ -71,7 +71,7 @@
                   <table class="table table-dark" style="text-align:center;" border="3">
                     <thead>
                       <tr>
-                        <th width="20%">ID</th>
+                        <th width="20%">任意ID</th>
                         <th width="20%">名前</th>
                         <th width="10%">申請</th>
                       </tr>
