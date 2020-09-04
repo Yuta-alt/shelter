@@ -45,6 +45,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('family/edit', 'Admin\FamilyController@update');
     Route::get('family/delete', 'Admin\FamilyController@delete');
     
+    Route::get('user', 'Admin\UserController@index');
+    
 });
 
 Auth::routes();
