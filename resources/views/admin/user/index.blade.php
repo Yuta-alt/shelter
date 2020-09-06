@@ -12,7 +12,7 @@
                     <a>任意ID入力欄：</a>
                 </div>
                 <div>
-                    <input type="text" class="form-control" name="" value="" >
+                    <input type="text" class="form-control" name="cond_uuid" value={{ $cond_uuid }}>
                 </div>
                 <div>
                     {{ csrf_field() }}
@@ -23,17 +23,20 @@
     <h5>検索結果</h5>
         <div class="col-md-12 mx-auto">
             <div class="row">
-              <table class="table table-dark" style="text-align:center;" border="3">
-                <thead>
-                  <tr>
-                    <th width="20%">任意ID</th>
-                    <th width="20%">名前</th>
-                    <th width="10%">申請</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
+                <table class="table table-dark" style="text-align:center;" border="3">
+                    <tr>
+                        <th>任意ID</th>
+                        <th>名前</th>
+                        <th>申請</th>
+                    </tr>
+                    @foreach ($posts as $user)
+                    <tr>
+                        <td>{{ $user->uuid }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>#</td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>
